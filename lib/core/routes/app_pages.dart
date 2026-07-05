@@ -10,6 +10,7 @@ class AppRoutes {
 class AppPages {
   const AppPages._();
   static final pages = [
-    GetPage(name: AppRoutes.home, page: () => const HomeView()),
+    GetPage(name: AppRoutes.home,
+        page: () => const HomeView()),
   ];
 }

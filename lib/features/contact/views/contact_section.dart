@@ -16,6 +16,8 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<ContactController>();
+
+    //info column
     const infoColumn = Column(
       children: [
         Padding(
@@ -44,6 +46,8 @@ class ContactSection extends StatelessWidget {
         ),
       ],
     );
+
+    //contact box
     final form = GlassCard(
       child: Form(
         key: controller.formKey,
@@ -51,6 +55,7 @@ class ContactSection extends StatelessWidget {
           children: [
             CustomTextField(controller: controller.name, label: 'Name'),
             const SizedBox(height: 14),
+            //Email
             CustomTextField(
               controller: controller.email,
               label: 'Email',
@@ -59,12 +64,14 @@ class ContactSection extends StatelessWidget {
             const SizedBox(height: 14),
             CustomTextField(controller: controller.subject, label: 'Subject'),
             const SizedBox(height: 14),
+            //Message
             CustomTextField(
               controller: controller.message,
               label: 'Message',
               maxLines: 5,
             ),
             const SizedBox(height: 18),
+            //Send Message button
             Align(
               alignment: Alignment.centerRight,
               child: Obx(
@@ -81,6 +88,8 @@ class ContactSection extends StatelessWidget {
         ),
       ),
     );
+
+    //Contact
     return ResponsiveConstrainedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +111,8 @@ class ContactSection extends StatelessWidget {
                   ],
                 )
               : Column(
-                  children: [infoColumn, const SizedBox(height: 10), form],
+                  children: [infoColumn, const SizedBox(height: 10),
+                    form],
                 ),
         ],
       ),

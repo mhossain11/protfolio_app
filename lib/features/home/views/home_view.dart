@@ -37,6 +37,7 @@ class _HomeViewState extends State<HomeView> {
               )
             : const SizedBox.shrink(),
       ),
+      //Header
       body: Stack(
         children: [
           const _GradientBackdrop(),
@@ -66,6 +67,7 @@ class _HomeViewState extends State<HomeView> {
                       )
                     : null,
               ),
+
               SliverToBoxAdapter(
                 child: Column(
                   children: [
@@ -94,6 +96,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
+  //Header List
   List<Widget> _navActions(List<GlobalKey> keys, BuildContext context) {
     final labels = [
       'Home',
@@ -122,6 +125,7 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
+//Mobile Drawer
 class _PortfolioDrawer extends StatelessWidget {
   const _PortfolioDrawer({required this.keys});
   final List<GlobalKey> keys;
@@ -170,12 +174,14 @@ class _PortfolioDrawer extends StatelessWidget {
   }
 }
 
+
 class _Section extends StatelessWidget {
   const _Section({super.key, required this.child});
   final Widget child;
   @override
   Widget build(BuildContext context) =>
-      Padding(padding: const EdgeInsets.symmetric(vertical: 58), child: child);
+      Padding(padding: const EdgeInsets.symmetric(vertical: 58),
+          child: child);
 }
 
 class _GradientBackdrop extends StatelessWidget {

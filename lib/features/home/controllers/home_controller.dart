@@ -55,15 +55,20 @@ class HomeController extends GetxController {
     });
   }
 
+  //Git icon
   Future<void> _loadGithub() async => githubRepos.value = await githubService
       .fetchPublicRepoCount(AppConstants.githubUser);
   void openUrl(String url) => urlService.open(url);
+
+  //scrollToTop
   void scrollToTop() => scrollController.animateTo(
     0,
     duration: const Duration(milliseconds: 700),
     curve: Curves.easeOutCubic,
   );
+
   void stopTyping() => _typingTimer?.cancel();
+
   void scrollTo(GlobalKey key) => Scrollable.ensureVisible(
     key.currentContext!,
     duration: const Duration(milliseconds: 700),
