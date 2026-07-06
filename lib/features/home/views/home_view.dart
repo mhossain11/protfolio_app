@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/utils/responsive.dart';
 import '../../../core/widgets/footer_widget.dart';
+import '../../../responsive.dart';
 import '../../about/views/about_section.dart';
 import '../../contact/views/contact_section.dart';
 import '../../experience/views/experience_section.dart';
@@ -28,7 +29,10 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
     return Scaffold(
-      drawer: !context.isDesktopLayout ? _PortfolioDrawer(keys: keys) : null,
+      // Mobile Drawer
+      drawer: !Responsive.isLargeScreen(context) ? _PortfolioDrawer(keys: keys) : null,
+
+      //Scroll Button
       floatingActionButton: Obx(
         () => controller.showTopButton.value
             ? FloatingActionButton(
@@ -37,6 +41,7 @@ class _HomeViewState extends State<HomeView> {
               )
             : const SizedBox.shrink(),
       ),
+
       //Header
       body: Stack(
         children: [
@@ -51,14 +56,18 @@ class _HomeViewState extends State<HomeView> {
                 backgroundColor: Theme.of(
                   context,
                 ).scaffoldBackgroundColor.withValues(alpha: .82),
-                title: const Text(
+               /* title: Text(
                   AppConstants.name,
-                  style: TextStyle(fontWeight: FontWeight.w800),
-                ),
-                actions: context.isDesktopLayout
-                    ? _navActions(keys, context)
+                  style: TextStyle(fontWeight: FontWeight.w800,
+                      fontSize: Responsive.isMobile(context)? 15: 40),
+                ),*/
+                // header button
+                actions: Responsive.isDesktop(context)?
+               _navActions(keys, context)
                     : null,
-                leading: !context.isDesktopLayout
+
+                // Drawer Icon
+                leading: !Responsive.isDesktop(context)
                     ? Builder(
                         builder: (context) => IconButton(
                           onPressed: () => Scaffold.of(context).openDrawer(),
@@ -201,7 +210,7 @@ class _GradientBackdrop extends StatelessWidget {
                   const Color(0xFF172554),
                 ]
               : [
-                  const Color(0xFFF8FAFC),
+                  const Color(0xFF4E5459),
                   const Color(0xFFE0F2FE),
                   const Color(0xFFF1F5F9),
                 ],

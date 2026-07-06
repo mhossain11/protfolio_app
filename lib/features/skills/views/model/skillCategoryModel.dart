@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class SkillCategory {
+class SkillCategoryModel {
   final String title;
   final List<SkillItem> skills;
 
-  SkillCategory({
+  SkillCategoryModel({
     required this.title,
     required this.skills,
   });

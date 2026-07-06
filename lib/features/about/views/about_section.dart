@@ -16,9 +16,8 @@ class AboutSection extends StatelessWidget {
         children: [
           const SectionTitle(
             eyebrow: 'About Me',
-            title: 'Software developer with product-minded execution.',
-            subtitle:
-                'I build reliable Flutter applications, backend services, and analytics-friendly systems with clean code and scalable architecture.',
+            title: 'Flutter Developer | Backend Engineer | Data Analytics Learner',
+            centerSubtitle:AppConstants.subTitle,
           ),
           const SizedBox(height: 26),
           LayoutBuilder(
@@ -38,13 +37,13 @@ class AboutSection extends StatelessWidget {
                 _AboutTile(
                   title: 'Career Goals',
                   text:
-                      'Grow as a senior Flutter/backend engineer and deliver global-standard software for startups and businesses.',
+                      'Passionate about building reliable software products and advancing my skills in Flutter, backend development, and data analytics.',
                   icon: Icons.flag,
                 ),
                 _AboutTile(
                   title: 'Experience',
                   text:
-                      '3+ years building Android, Flutter, API-integrated, and production-oriented applications.',
+                      '3 years building Android, Flutter, API-integrated, and production-oriented applications.',
                   icon: Icons.timeline,
                 ),
               ];

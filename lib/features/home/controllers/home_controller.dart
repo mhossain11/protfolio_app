@@ -23,6 +23,7 @@ class HomeController extends GetxController {
   final VisitorService visitorService;
   final scrollController = ScrollController();
   final showTopButton = false.obs;
+  final isLoading = true.obs;
   final typedTitle = ''.obs;
   final githubRepos = RxnInt();
   final visitors = 0.obs;
@@ -39,7 +40,23 @@ class HomeController extends GetxController {
     );
     _startTyping();
     _loadGithub();
+    loadData();
   }
+
+  Future<void> loadData() async {
+    try {
+      isLoading.value = true;
+
+      // API call / Firebase call
+      await Future.delayed(const Duration(seconds: 2));
+
+    } catch (e) {
+      print(e);
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
 
   void _startTyping() {
     _typingTimer = Timer.periodic(const Duration(milliseconds: 95), (_) {
@@ -58,6 +75,7 @@ class HomeController extends GetxController {
   //Git icon
   Future<void> _loadGithub() async => githubRepos.value = await githubService
       .fetchPublicRepoCount(AppConstants.githubUser);
+  //
   void openUrl(String url) => urlService.open(url);
 
   //scrollToTop

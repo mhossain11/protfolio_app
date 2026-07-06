@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1039209594551",
+    "project_id": "portfolio-64e60",
+    "storage_bucket": "portfolio-64e60.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039209594551:android:46e9c01a8df26229789732",
+        "android_client_info": {
+          "package_name": "com.syedfaysal.syed_faysal_portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-cr8On3-1288CY_rNvyOgVM9xu7o9oeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

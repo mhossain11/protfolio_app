@@ -19,7 +19,6 @@ class PortfolioApp extends StatelessWidget {
     return GetBuilder<ThemeController>(
       init: ThemeController(),
       builder: (controller) => GetMaterialApp(
-        title: 'Syed Faysal Hossain | Portfolio',
         debugShowCheckedModeBanner: false,
         initialBinding: HomeBinding(),
         initialRoute: AppRoutes.home,

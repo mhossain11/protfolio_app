@@ -6,6 +6,7 @@ import '../../../core/utils/responsive.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/glass_card.dart';
 import '../../../core/widgets/social_button.dart';
+import '../../../responsive.dart';
 import '../controllers/home_controller.dart';
 
 class HeroSection extends StatelessWidget {
@@ -18,16 +19,19 @@ class HeroSection extends StatelessWidget {
     final intro = _IntroContent(home: home, onContact: onContact);
     final profile = _ProfileCard(home: home);
     return ResponsiveConstrainedBox(
-      child: context.isDesktopLayout
-          ? Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(flex: 6, child: intro),
-                const SizedBox(width: 48),
-                Expanded(flex: 4, child: profile),
-              ],
-            )
-          : Column(children: [intro, const SizedBox(height: 36), profile]),
+      child: Obx(
+          ()=> Responsive.isLargeScreen(context)
+            ? Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(flex: 6, child: intro),
+            const SizedBox(width: 48),
+            home.isLoading.value ? const SizedBox():
+            Expanded(flex: 4, child: profile),
+          ],
+        )
+            : Column(children: [intro, const SizedBox(height: 36), profile]),
+      ),
     );
   }
 }
@@ -44,14 +48,17 @@ class _IntroContent extends StatelessWidget {
           ? CrossAxisAlignment.start
           : CrossAxisAlignment.center,
       children: [
+        //Profile text
         Text(
           'Hello, I am',
           style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.w800,
+              fontSize: Responsive.isMobile(context)? 25: 40
           ),
         ),
         const SizedBox(height: 12),
+        // Profile Name
         Text(
           AppConstants.name,
           textAlign: context.isDesktopLayout
@@ -59,9 +66,10 @@ class _IntroContent extends StatelessWidget {
               : TextAlign.center,
           style: Theme.of(
             context,
-          ).textTheme.displayMedium?.copyWith(fontWeight: FontWeight.w900),
+          ).textTheme.displayMedium?.copyWith(fontWeight: FontWeight.w900,fontSize: Responsive.isMobile(context)? 30: 50),
         ),
         const SizedBox(height: 16),
+
         Obx(
           () => Text(
             '${home.typedTitle.value}|',
@@ -72,6 +80,7 @@ class _IntroContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
+        //tagline
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 680),
           child: Text(
@@ -85,6 +94,8 @@ class _IntroContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 28),
+
+        //Button
         Wrap(
           spacing: 14,
           runSpacing: 14,
@@ -106,6 +117,7 @@ class _IntroContent extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 24),
+        //Icon Button
         Wrap(
           spacing: 12,
           alignment: WrapAlignment.center,
@@ -132,7 +144,7 @@ class _IntroContent extends StatelessWidget {
   }
 }
 
-class _ProfileCard extends StatelessWidget {
+/*class _ProfileCard extends StatelessWidget {
   const _ProfileCard({required this.home});
   final HomeController home;
   @override
@@ -140,40 +152,30 @@ class _ProfileCard extends StatelessWidget {
     return GlassCard(
       child: Column(
         children: [
-          Container(
-            width: 220,
-            height: 220,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.secondary,
-                ],
-              ),
-            ),
-            child: const Icon(Icons.person, size: 112, color: Colors.white),
-          ),
-          const SizedBox(height: 24),
-          Obx(
-            () => Wrap(
-              spacing: 14,
-              runSpacing: 14,
-              alignment: WrapAlignment.center,
-              children: [
-                _Metric(
-                  label: 'Visitors',
-                  value: home.visitors.value.toString(),
-                ),
-                _Metric(
-                  label: 'GitHub Repos',
-                  value: home.githubRepos.value?.toString() ?? '--',
-                ),
-                const _Metric(label: 'Experience', value: '3+ yrs'),
-              ],
-            ),
-          ),
+          Image.asset("assets/images/im.jpg",
+            width: Responsive.width(context) * 0.8,
+            //height: Responsive.height(context) * 1,
+            fit: BoxFit.cover,
+          )
         ],
+      ),
+    );
+  }
+}*/
+class _ProfileCard extends StatelessWidget {
+  const _ProfileCard({required this.home});
+
+  final HomeController home;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Image.asset(
+        "assets/images/im.jpg",
+        width: Responsive.width(context) * 0.9,
+        fit: BoxFit.cover,
+        cacheWidth: 800,
       ),
     );
   }

@@ -5,11 +5,13 @@ class SectionTitle extends StatelessWidget {
     super.key,
     required this.eyebrow,
     required this.title,
-    required this.subtitle,
+     this.subtitle ='',
+    this.centerSubtitle ='',
   });
   final String eyebrow;
   final String title;
-  final String subtitle;
+  final String? subtitle;
+  final String? centerSubtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +35,19 @@ class SectionTitle extends StatelessWidget {
           ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
         ),
         const SizedBox(height: 10),
+        Center(
+          child: Text(
+            centerSubtitle!,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.7),
+          ),
+        ),
+        const SizedBox(height: 10),
+
+        const SizedBox(height: 10),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
           child: Text(
-            subtitle,
+            subtitle!,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.7),
           ),
         ),

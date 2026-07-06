@@ -96,7 +96,8 @@ class SkillsSection extends StatelessWidget {
             'Mobile, Backend, Web, Databases and Data Analytics tools.',
           ),
 
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
+
 
           GridView.builder(
             shrinkWrap: true,
@@ -105,8 +106,6 @@ class SkillsSection extends StatelessWidget {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: context.isMobileLayout
                   ? 1
-                  : context.isTabletLayout
-                  ? 2
                   : 4,
               crossAxisSpacing: 24,
               mainAxisSpacing: 24,
@@ -115,9 +114,16 @@ class SkillsSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final entry = grouped.entries.elementAt(index);
 
-              return SkillCategoryCard(
-                title: entry.key,
-                skills: entry.value,
+              return Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  width: context.isMobileLayout ? 420
+                      : double.infinity,
+                  child: SkillCategoryCard(
+                    title: entry.key,
+                    skills: entry.value,
+                  ),
+                ),
               );
             },
           ),
