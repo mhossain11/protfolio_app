@@ -79,6 +79,7 @@ class SkillCategoryCard extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 12),
                       child: SkillTile(
                         skillName: skill.name,
+                        skillIcon: skill.emoji,
                       ),
                     ),
                   ),

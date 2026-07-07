@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 
 class SkillTile extends StatelessWidget {
   final String skillName;
+  final String? skillIcon;
 
   SkillTile({
     super.key,
     required this.skillName,
+    this.skillIcon ="",
   });
 
   final RxBool isHover = false.obs;
@@ -48,12 +50,15 @@ class SkillTile extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Icon(
-                Icons.code,
-                color: isHover.value
-                    ? Colors.amber
-                    : Colors.white70,
-                size: 18,
+              Text(
+                skillIcon!,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: isHover.value
+                      ? Colors.amber
+                      : Colors.white,
+                ),
               ),
 
               const SizedBox(width: 12),

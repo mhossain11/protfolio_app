@@ -13,40 +13,35 @@ class PortfolioRepository {
   ];
 
   List<SkillModel> skills = const [
-    SkillModel(name: 'Kotlin', category: 'Languages', percent: .94),
-    SkillModel(name: 'Dart', category: 'Languages', percent: .94),
-    SkillModel(name: 'JavaScript', category: 'Languages', percent: .94),
-    SkillModel(name: 'Python', category: 'Languages', percent: .94),
+    SkillModel(name: 'Kotlin',emoji:"⚡", category: 'Languages', percent: .94),
+    SkillModel(name: 'Dart',emoji: "🎯", category: 'Languages', percent: .94),
+    SkillModel(name: 'JavaScript',emoji: "🌐", category: 'Languages', percent: .94),
+    SkillModel(name: 'Python',emoji: "🐍", category: 'Languages', percent: .94),
 
-    SkillModel(name: 'MySQL', category: 'Database', percent: .82),
-    SkillModel(name: 'SQLite', category: 'Database', percent: .84),
-    SkillModel(name: 'Hive', category: 'Database', percent: .78),
-    SkillModel(name: 'Firestore', category: 'Database', percent: .80),
+    SkillModel(name: 'SharedPreferences',emoji: "🗄️", category: 'Local Database', percent: .82),
+    SkillModel(name: 'SQLite',emoji: "📊", category: 'Local Database', percent: .84),
+    SkillModel(name: 'Hive',emoji: "📦", category: 'Local Database', percent: .78),
 
-    SkillModel(name: 'Django', category: 'Backend Integration', percent: .94),
-    SkillModel(name: 'Node.js', category: 'Backend Integration', percent: .94),
-    SkillModel(name: 'Firebase', category: 'Backend Integration', percent: .94),
+    SkillModel(name: 'Django', emoji: '🎯', category: 'Backend Integration', percent: .94),
+    SkillModel(name: 'Node.js', emoji: '🟢', category: 'Backend Integration', percent: .94),
+    SkillModel(name: 'Firebase', emoji: '🔥', category: 'Backend Integration', percent: .94),
 
+    SkillModel(name: 'Flutter', emoji: '💙', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'Android Studio', emoji: '🤖', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'SQLite', emoji: '🗄️', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'Responsive Design', emoji: '📱', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'UI/UX Design', emoji: '🎨', category: 'Mobile Development', percent: .94),
 
-    SkillModel(name: 'Flutter', category: 'Mobile Development', percent: .94),
-    SkillModel(name: 'Android Studio', category: 'Mobile Development', percent: .94),
-    SkillModel(name: 'SQLite', category: 'Mobile Development', percent: .94),
-    SkillModel(name: 'Responsive Design', category: 'Mobile Development', percent: .94),
-    SkillModel(name: 'UI/UX Design', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'Python', emoji:"🐍", category: 'Data Analytics', percent: .72),
+    SkillModel(name: 'Statistics', emoji: '📊', category: 'Data Analytics', percent: .70),
+    SkillModel(name: 'Pandas', emoji: '🐼', category: 'Data Analytics', percent: .68),
+    SkillModel(name: 'NumPy', emoji: '🔢', category: 'Data Analytics', percent: .66),
+    SkillModel(name: 'Power BI', emoji: '📈', category: 'Data Analytics', percent: .64),
 
-
-    SkillModel(name: 'Android Studio', category: 'Tools', percent: .90),
-    SkillModel(name: 'VS Code', category: 'Tools', percent: .92),
-    SkillModel(name: 'Git', category: 'Tools', percent: .88),
-    SkillModel(name: 'GitHub', category: 'Tools', percent: .86),
-    SkillModel(name: 'Postman', category: 'Tools', percent: .84),
-
-
-    SkillModel(name: 'Python', category: 'Data Analytics', percent: .72),
-    SkillModel(name: 'Statistics', category: 'Data Analytics', percent: .70),
-    SkillModel(name: 'Pandas', category: 'Data Analytics', percent: .68),
-    SkillModel(name: 'NumPy', category: 'Data Analytics', percent: .66),
-    SkillModel(name: 'Power BI', category: 'Data Analytics', percent: .64),
+    SkillModel(name: 'Android Studio', emoji: '📱', category: 'Tools', percent: .90),
+    SkillModel(name: 'VS Code', emoji: '🔧', category: 'Tools', percent: .92),
+    SkillModel(name: 'Git/GitHub', emoji: '📚', category: 'Tools', percent: .88),
+    SkillModel(name: 'Postman', emoji: '📮', category: 'Tools', percent: .84),
   ];
 
   List<ExperienceModel> experiences = const [
