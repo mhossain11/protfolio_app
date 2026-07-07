@@ -143,25 +143,6 @@ class _IntroContent extends StatelessWidget {
     );
   }
 }
-
-/*class _ProfileCard extends StatelessWidget {
-  const _ProfileCard({required this.home});
-  final HomeController home;
-  @override
-  Widget build(BuildContext context) {
-    return GlassCard(
-      child: Column(
-        children: [
-          Image.asset("assets/images/im.jpg",
-            width: Responsive.width(context) * 0.8,
-            //height: Responsive.height(context) * 1,
-            fit: BoxFit.cover,
-          )
-        ],
-      ),
-    );
-  }
-}*/
 class _ProfileCard extends StatelessWidget {
   const _ProfileCard({required this.home});
 
@@ -181,23 +162,3 @@ class _ProfileCard extends StatelessWidget {
   }
 }
 
-class _Metric extends StatelessWidget {
-  const _Metric({required this.label, required this.value});
-  final String label;
-  final String value;
-  @override
-  Widget build(BuildContext context) => SizedBox(
-    width: 110,
-    child: Column(
-      children: [
-        Text(
-          value,
-          style: Theme.of(
-            context,
-          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w900),
-        ),
-        Text(label, textAlign: TextAlign.center),
-      ],
-    ),
-  );
-}

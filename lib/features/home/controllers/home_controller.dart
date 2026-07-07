@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/github_service.dart';
 import '../../../core/services/url_service.dart';
-import '../../../core/services/visitor_service.dart';
 import '../../../data/repositories/portfolio_repository.dart';
 
 class HomeController extends GetxController {
@@ -14,13 +13,11 @@ class HomeController extends GetxController {
     this.repository,
     this.githubService,
     this.urlService,
-    this.visitorService,
   );
 
   final PortfolioRepository repository;
   final GithubService githubService;
   final UrlService urlService;
-  final VisitorService visitorService;
   final scrollController = ScrollController();
   final showTopButton = false.obs;
   final isLoading = true.obs;
@@ -34,7 +31,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    visitors.value = visitorService.increment();
     scrollController.addListener(
       () => showTopButton.value = scrollController.offset > 500,
     );

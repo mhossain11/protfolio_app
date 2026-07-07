@@ -13,28 +13,39 @@ class PortfolioRepository {
   ];
 
   List<SkillModel> skills = const [
-    SkillModel(name: 'Flutter', category: 'Frontend', percent: .94),
-    SkillModel(name: 'Dart', category: 'Frontend', percent: .90),
-    SkillModel(name: 'GetX', category: 'Frontend', percent: .88),
-    SkillModel(name: 'Bloc', category: 'Frontend', percent: .76),
-    SkillModel(name: 'Riverpod', category: 'Frontend', percent: .72),
-    SkillModel(name: 'Django', category: 'Backend', percent: .82),
-    SkillModel(name: 'Node.js', category: 'Backend', percent: .74),
-    SkillModel(name: 'REST API', category: 'Backend', percent: .90),
-    SkillModel(name: 'Firebase', category: 'Backend', percent: .86),
+    SkillModel(name: 'Kotlin', category: 'Languages', percent: .94),
+    SkillModel(name: 'Dart', category: 'Languages', percent: .94),
+    SkillModel(name: 'JavaScript', category: 'Languages', percent: .94),
+    SkillModel(name: 'Python', category: 'Languages', percent: .94),
+
     SkillModel(name: 'MySQL', category: 'Database', percent: .82),
     SkillModel(name: 'SQLite', category: 'Database', percent: .84),
     SkillModel(name: 'Hive', category: 'Database', percent: .78),
     SkillModel(name: 'Firestore', category: 'Database', percent: .80),
+
+    SkillModel(name: 'Django', category: 'Backend Integration', percent: .94),
+    SkillModel(name: 'Node.js', category: 'Backend Integration', percent: .94),
+    SkillModel(name: 'Firebase', category: 'Backend Integration', percent: .94),
+
+
+    SkillModel(name: 'Flutter', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'Android Studio', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'SQLite', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'Responsive Design', category: 'Mobile Development', percent: .94),
+    SkillModel(name: 'UI/UX Design', category: 'Mobile Development', percent: .94),
+
+
+    SkillModel(name: 'Android Studio', category: 'Tools', percent: .90),
+    SkillModel(name: 'VS Code', category: 'Tools', percent: .92),
     SkillModel(name: 'Git', category: 'Tools', percent: .88),
     SkillModel(name: 'GitHub', category: 'Tools', percent: .86),
     SkillModel(name: 'Postman', category: 'Tools', percent: .84),
-    SkillModel(name: 'Android Studio', category: 'Tools', percent: .90),
-    SkillModel(name: 'VS Code', category: 'Tools', percent: .92),
+
+
     SkillModel(name: 'Python', category: 'Data Analytics', percent: .72),
+    SkillModel(name: 'Statistics', category: 'Data Analytics', percent: .70),
     SkillModel(name: 'Pandas', category: 'Data Analytics', percent: .68),
     SkillModel(name: 'NumPy', category: 'Data Analytics', percent: .66),
-    SkillModel(name: 'Statistics', category: 'Data Analytics', percent: .70),
     SkillModel(name: 'Power BI', category: 'Data Analytics', percent: .64),
   ];
 

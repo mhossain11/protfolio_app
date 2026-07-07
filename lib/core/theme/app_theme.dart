@@ -1,188 +1,156 @@
-/*import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../constants/app_constants.dart';
+import 'package:flutter/material.dart';
 
 class AppTheme {
-  const AppTheme._();
+  static const Color background = Color(0xFF050505);
+  static const Color surface = Color(0xFF111111);
+  static const Color card = Color(0xFF1A1A1A);
 
-  static ThemeData get dark => _base(Brightness.dark).copyWith(
-    scaffoldBackgroundColor: AppConstants.darkBackground,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppConstants.primary,
-      brightness: Brightness.dark,
-      primary: AppConstants.primary,
-      secondary: AppConstants.secondary,
-      surface: AppConstants.cardBackground,
+  static const Color primary = Color(0xFFFFB400);
+  static const Color secondary = Color(0xFFFFC107);
+
+  static const Color textPrimary = Color(0xFFFFFFFF);
+  static const Color textSecondary = Color(0xFFB0B0B0);
+
+  static ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.dark,
+
+    scaffoldBackgroundColor: background,
+
+    colorScheme: const ColorScheme.dark(
+      primary: primary,
+      secondary: secondary,
+      surface: surface,
+      onPrimary: Colors.black,
+      onSurface: textPrimary,
     ),
-  );
 
-  static ThemeData get light => _base(Brightness.light).copyWith(
-    scaffoldBackgroundColor: const Color(0xFFF8FAFC),
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppConstants.primary,
-      brightness: Brightness.light,
-      primary: AppConstants.primary,
-      secondary: AppConstants.secondary,
-      surface: Colors.white,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: background,
+      elevation: 0,
+      centerTitle: false,
+      foregroundColor: textPrimary,
     ),
-  );
 
-  static ThemeData _base(Brightness brightness) {
-    final textTheme = GoogleFonts.poppinsTextTheme().apply(
-      bodyColor: Colors.black,
-      displayColor: Colors.black,
-      decorationColor: Colors.black,
-    );
-    return ThemeData(
-      useMaterial3: true,
-      brightness: brightness,
-      textTheme: textTheme,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-        },
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
+    cardTheme: CardThemeData(
+      color: card,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+        side: BorderSide(
+          color: primary.withOpacity(.15),
         ),
       ),
-    );
-  }
-}*/
-
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../constants/app_constants.dart';
-
-class AppTheme {
-  const AppTheme._();
-
-  static ThemeData get dark => _base(Brightness.dark).copyWith(
-    scaffoldBackgroundColor: AppConstants.darkBackground,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppConstants.primary,
-      brightness: Brightness.dark,
-      primary: AppConstants.primary,
-      secondary: AppConstants.secondary,
-      surface: AppConstants.cardBackground,
-      onSurface: Colors.white,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
     ),
-  );
 
-  static ThemeData get light => _base(Brightness.light).copyWith(
-    scaffoldBackgroundColor: const Color(0xFFF8FAFC),
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppConstants.primary,
-      brightness: Brightness.light,
-      primary: AppConstants.primary,
-      secondary: AppConstants.secondary,
-      surface: Colors.white,
-      onSurface: Colors.black,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
-    ),
-  );
-
-  static ThemeData _base(Brightness brightness) {
-    final bool isDark = brightness == Brightness.dark;
-
-    final textTheme = GoogleFonts.poppinsTextTheme().apply(
-      bodyColor: isDark ? Colors.white : Colors.black,
-      displayColor: isDark ? Colors.white : Colors.black,
-      decorationColor: isDark ? Colors.white : Colors.black,
-    );
-
-    return ThemeData(
-      useMaterial3: true,
-      brightness: brightness,
-      textTheme: textTheme,
-
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-        },
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
+        color: textPrimary,
+        fontSize: 56,
+        fontWeight: FontWeight.bold,
       ),
 
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: isDark
-            ? AppConstants.cardBackground
-            : Colors.white,
+      displayMedium: TextStyle(
+        color: textPrimary,
+        fontSize: 42,
+        fontWeight: FontWeight.bold,
+      ),
 
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
+      headlineLarge: TextStyle(
+        color: primary,
+        fontSize: 36,
+        fontWeight: FontWeight.bold,
+      ),
+
+      headlineMedium: TextStyle(
+        color: primary,
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+      ),
+
+      titleLarge: TextStyle(
+        color: textPrimary,
+        fontSize: 22,
+        fontWeight: FontWeight.w700,
+      ),
+
+      bodyLarge: TextStyle(
+        color: textPrimary,
+        fontSize: 16,
+      ),
+
+      bodyMedium: TextStyle(
+        color: textSecondary,
+        fontSize: 14,
+      ),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primary,
+        foregroundColor: Colors.black,
+        elevation: 0,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 28,
           vertical: 18,
         ),
-
-        labelStyle: TextStyle(
-          color: isDark ? Colors.white70 : Colors.black54,
-        ),
-
-        hintStyle: TextStyle(
-          color: isDark ? Colors.white54 : Colors.black45,
-        ),
-
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
-        ),
-
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(
-            color: isDark
-                ? Colors.white10
-                : Colors.grey.shade300,
-          ),
-        ),
-
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: AppConstants.primary,
-            width: 2,
-          ),
-        ),
-
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
-
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: Colors.red,
-            width: 2,
-          ),
-        ),
-      ),
-
-      cardTheme: CardThemeData(
-        color: isDark
-            ? AppConstants.cardBackground
-            : Colors.white,
-        elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        textStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
         ),
       ),
-    );
-  }
+    ),
+
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: primary,
+        side: const BorderSide(
+          color: primary,
+        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 28,
+          vertical: 18,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: card,
+      hintStyle: const TextStyle(
+        color: textSecondary,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(14),
+        borderSide: BorderSide(
+          color: primary.withOpacity(.15),
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(14),
+        borderSide: BorderSide(
+          color: primary.withOpacity(.15),
+        ),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(14),
+        ),
+        borderSide: BorderSide(
+          color: primary,
+          width: 1.5,
+        ),
+      ),
+    ),
+
+    dividerTheme: DividerThemeData(
+      color: primary.withOpacity(.1),
+    ),
+  );
 }

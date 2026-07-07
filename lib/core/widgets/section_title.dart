@@ -41,9 +41,8 @@ class SectionTitle extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.7),
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
 
-        const SizedBox(height: 10),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
           child: Text(

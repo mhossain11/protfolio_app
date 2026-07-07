@@ -24,6 +24,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final keys = List.generate(7, (_) => GlobalKey());
+  final RxInt hoveredIndex = (-1).obs;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class _HomeViewState extends State<HomeView> {
       //Header
       body: Stack(
         children: [
-          const _GradientBackdrop(),
+         // const _GradientBackdrop(),
           CustomScrollView(
             controller: controller.scrollController,
             slivers: [
@@ -53,9 +54,7 @@ class _HomeViewState extends State<HomeView> {
                 pinned: true,
                 floating: true,
                 toolbarHeight: 74,
-                backgroundColor: Theme.of(
-                  context,
-                ).scaffoldBackgroundColor.withValues(alpha: .82),
+                backgroundColor: Colors.amber,
                /* title: Text(
                   AppConstants.name,
                   style: TextStyle(fontWeight: FontWeight.w800,
@@ -67,14 +66,14 @@ class _HomeViewState extends State<HomeView> {
                     : null,
 
                 // Drawer Icon
-                leading: !Responsive.isDesktop(context)
+                /*leading: !Responsive.isDesktop(context)
                     ? Builder(
                         builder: (context) => IconButton(
                           onPressed: () => Scaffold.of(context).openDrawer(),
                           icon: const Icon(Icons.menu),
                         ),
                       )
-                    : null,
+                    : null,*/
               ),
 
               SliverToBoxAdapter(
@@ -116,19 +115,30 @@ class _HomeViewState extends State<HomeView> {
       'Services',
       'Contact',
     ];
+
     final home = Get.find<HomeController>();
+
     return [
       for (var i = 0; i < labels.length; i++)
-        TextButton(
-          onPressed: () => home.scrollTo(keys[i]),
-          child: Text(labels[i]),
+        MouseRegion(
+          onEnter: (_) => hoveredIndex.value = i,
+          onExit: (_) => hoveredIndex.value = -1,
+          child: Obx(
+                () => TextButton(
+              onPressed: () => home.scrollTo(keys[i]),
+              child: Text(
+                labels[i],
+                style: TextStyle(
+                  color: hoveredIndex.value == i
+                      ? Colors.white
+                      : Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
         ),
-      GetBuilder<ThemeController>(
-        builder: (theme) => IconButton(
-          onPressed: theme.toggleTheme,
-          icon: Icon(theme.isDark ? Icons.light_mode : Icons.dark_mode),
-        ),
-      ),
+
       const SizedBox(width: 18),
     ];
   }
@@ -169,13 +179,13 @@ class _PortfolioDrawer extends StatelessWidget {
                   home.scrollTo(keys[i]);
                 },
               ),
-            GetBuilder<ThemeController>(
+           /* GetBuilder<ThemeController>(
               builder: (theme) => SwitchListTile(
                 value: theme.isDark,
                 onChanged: (_) => theme.toggleTheme(),
                 title: const Text('Dark Mode'),
               ),
-            ),
+            ),*/
           ],
         ),
       ),
@@ -193,11 +203,11 @@ class _Section extends StatelessWidget {
           child: child);
 }
 
-class _GradientBackdrop extends StatelessWidget {
+/*class _GradientBackdrop extends StatelessWidget {
   const _GradientBackdrop();
   @override
   Widget build(BuildContext context) {
-    final dark = Theme.of(context).brightness == Brightness.dark;
+    //final dark = Theme.of(context).brightness == Brightness.dark;
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -219,4 +229,4 @@ class _GradientBackdrop extends StatelessWidget {
       child: const SizedBox.expand(),
     );
   }
-}
+}*/

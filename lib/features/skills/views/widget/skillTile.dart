@@ -1,54 +1,78 @@
 import 'package:flutter/material.dart';
-import '../../../../core/widgets/glass_card.dart';
+import 'package:get/get.dart';
 
 class SkillTile extends StatelessWidget {
   final String skillName;
 
-  const SkillTile({
+  SkillTile({
     super.key,
     required this.skillName,
   });
 
+  final RxBool isHover = false.obs;
+
   @override
   Widget build(BuildContext context) {
-    return GlassCard(
-      //borderRadius: 16,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 18,
-        vertical: 14,
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 20,
-            height: 15,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF3B82F6),
-                  Color(0xFF06B6D4),
-                ],
-              ),
-            ),
-            child: const Icon(
-              Icons.code,
-              color: Colors.white,
-              size: 14,
-            ),
+    return MouseRegion(
+      onEnter: (_) => isHover.value = true,
+      onExit: (_) => isHover.value = false,
+      child: Obx(
+            () => AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeInOut,
+          transform: Matrix4.identity()
+            ..scale(isHover.value ? 1.03 : 1.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 18,
+            vertical: 14,
           ),
-
-          const SizedBox(width: 12),
-
-          Expanded(
-            child: Text(
-              skillName,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: isHover.value
+                ? Colors.blueAccent.withOpacity(.08)
+                : Colors.white.withOpacity(.04),
+            border: Border.all(
+              color: isHover.value
+                  ? Colors.blueAccent.withOpacity(.4)
+                  : Colors.white.withOpacity(.05),
             ),
+            boxShadow: isHover.value
+                ? [
+              BoxShadow(
+                color: Colors.amber.withOpacity(.15),
+                blurRadius: 20,
+                spreadRadius: 1,
+              ),
+            ]
+                : [],
           ),
-        ],
+          child: Row(
+            children: [
+              Icon(
+                Icons.code,
+                color: isHover.value
+                    ? Colors.amber
+                    : Colors.white70,
+                size: 18,
+              ),
+
+              const SizedBox(width: 12),
+
+              Expanded(
+                child: Text(
+                  skillName,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: isHover.value
+                        ? Colors.amber
+                        : Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

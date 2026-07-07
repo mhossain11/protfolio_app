@@ -1,67 +1,92 @@
 import 'package:flutter/material.dart';
-import 'package:syed_faysal_portfolio/core/widgets/glass_card.dart';
-import 'package:syed_faysal_portfolio/features/skills/views/widget/skillTile.dart';
+import 'package:get/get.dart';
+
+import 'skillTile.dart';
 
 class SkillCategoryCard extends StatelessWidget {
-  final String title;
-  final List<dynamic> skills;
-
-  const SkillCategoryCard({
+  SkillCategoryCard({
     super.key,
     required this.title,
     required this.skills,
   });
 
+  final String title;
+  final List<dynamic> skills;
+
+  final RxBool isHover = false.obs;
+
   @override
   Widget build(BuildContext context) {
-    return GlassCard(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ShaderMask(
-            shaderCallback: (bounds) => const LinearGradient(
-              colors: [
-                Color(0xFF3B82F6),
-                Color(0xFF06B6D4),
-              ],
-            ).createShader(bounds),
-            child: const Text(
-              '',
-              style: TextStyle(color: Colors.white),
+    return MouseRegion(
+      onEnter: (_) => isHover.value = true,
+      onExit: (_) => isHover.value = false,
+      child: Obx(
+            () => AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeInOut,
+          transform: Matrix4.identity()
+            ..scale(isHover.value ? 1.02 : 1.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            boxShadow: isHover.value
+                ? [
+              BoxShadow(
+                color: Colors.amber.withOpacity(.20),
+                blurRadius: 40,
+                spreadRadius: 4,
+              ),
+            ]
+                : [],
+          ),
+          child: Card(
+            elevation: 0,
+            color: const Color(0xff16181d),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+              side: BorderSide(
+                color: isHover.value
+                    ? Colors.amber.withOpacity(.4)
+                    : Colors.white.withOpacity(.08),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: isHover.value
+                          ? Colors.amber
+                          : Colors.white,
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  Divider(
+                    color: Colors.white.withOpacity(.1),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  ...skills.map(
+                        (skill) => Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: SkillTile(
+                        skillName: skill.name,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-
-          const SizedBox(height: 14),
-
-          Divider(
-            color: Colors.white.withOpacity(.1),
-          ),
-
-          const SizedBox(height: 20),
-
-          Expanded(
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: skills.length,
-              separatorBuilder: (_, __) =>
-              const SizedBox(height: 12),
-              itemBuilder: (_, index) {
-                return SkillTile(
-                  skillName: skills[index].name,
-                );
-              },
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

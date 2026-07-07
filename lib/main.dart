@@ -16,18 +16,13 @@ class PortfolioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeController>(
-      init: ThemeController(),
-      builder: (controller) => GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialBinding: HomeBinding(),
-        initialRoute: AppRoutes.home,
-        getPages: AppPages.pages,
-        theme: AppTheme.light,
-        darkTheme: AppTheme.dark,
-        themeMode: controller.themeMode,
-        defaultTransition: Transition.fadeIn,
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialBinding: HomeBinding(),
+      initialRoute: AppRoutes.home,
+      getPages: AppPages.pages,
+      theme: AppTheme.darkTheme,
+      defaultTransition: Transition.fadeIn,
     );
   }
 }
