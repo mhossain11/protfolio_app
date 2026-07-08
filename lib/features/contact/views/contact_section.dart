@@ -16,6 +16,7 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<ContactController>();
+    final RxBool isHover = false.obs;
 
     //info column
     const infoColumn = Column(

@@ -5,12 +5,14 @@ class ProjectModel {
     required this.description,
     required this.technologies,
     required this.githubUrl,
-    required this.liveUrl,
+    //this.liveUrl="",
+    required this.image,
   });
   final String title;
   final String category;
+  final String image;
   final String description;
   final List<String> technologies;
   final String githubUrl;
-  final String liveUrl;
+ // final String? liveUrl;
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/responsive.dart';
 import '../../../core/widgets/project_card.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../features/home/controllers/home_controller.dart';
+import '../../../responsive.dart';
 import 'project_controller.dart';
 
 class ProjectsSection extends StatelessWidget {
@@ -26,6 +28,7 @@ class ProjectsSection extends StatelessWidget {
                 'Filter and search projects by category, title, and technology stack.',
           ),
           const SizedBox(height: 22),
+          //Project Category
           Obx(
             () => Wrap(
               spacing: 10,
@@ -43,6 +46,7 @@ class ProjectsSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 18),
+          //Search
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 420),
             child: TextField(
@@ -55,23 +59,22 @@ class ProjectsSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
+
+          //Project List
           Obx(
-            () => GridView.builder(
+            () => MasonryGridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: context.projectColumns,
+              mainAxisSpacing: 18,
+              crossAxisSpacing: 18,
               itemCount: controller.filteredProjects.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: context.projectColumns,
-                mainAxisExtent: context.isMobileLayout ? 720 : 760,
-                crossAxisSpacing: 18,
-                mainAxisSpacing: 18,
-              ),
               itemBuilder: (_, index) {
                 final project = controller.filteredProjects[index];
+
                 return ProjectCard(
                   project: project,
                   onGithub: () => home.openUrl(project.githubUrl),
-                  onLive: () => home.openUrl(project.liveUrl),
                 );
               },
             ),

@@ -26,8 +26,8 @@ class ContactCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               gradient: const LinearGradient(
                 colors: [
-                  Color(0xFF3B82F6),
-                  Color(0xFF06B6D4),
+                  Color(0xFF3C3422),
+                  Color(0xFF7C5414),
                 ],
               ),
             ),

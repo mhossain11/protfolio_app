@@ -10,11 +10,11 @@ class ProjectCard extends StatelessWidget {
     super.key,
     required this.project,
     required this.onGithub,
-    required this.onLive,
+   //  this.onLive,
   });
   final ProjectModel project;
   final VoidCallback onGithub;
-  final VoidCallback onLive;
+ // final VoidCallback? onLive;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150,
+              height: 250,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 gradient: LinearGradient(
@@ -57,7 +57,7 @@ class ProjectCard extends StatelessWidget {
                   .map((tech) => Chip(label: Text(tech)))
                   .toList(),
             ),
-            const Spacer(),
+            const SizedBox(height: 30,),
             Wrap(
               spacing: 12,
               runSpacing: 12,
@@ -68,11 +68,11 @@ class ProjectCard extends StatelessWidget {
                   onPressed: onGithub,
                   filled: false,
                 ),
-                CustomButton(
+                /*CustomButton(
                   label: 'Live Demo',
                   icon: Icons.open_in_new,
-                  onPressed: onLive,
-                ),
+                  onPressed: onLive!,
+                ),*/
               ],
             ),
           ],

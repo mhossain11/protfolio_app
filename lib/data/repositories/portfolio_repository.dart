@@ -45,19 +45,28 @@ class PortfolioRepository {
   ];
 
   List<ExperienceModel> experiences = const [
+
     ExperienceModel(
       role: 'Flutter Developer',
       company: 'LiberalSoft & Tech Solutions',
-      period: '2025 - Present',
+      period: '2024 - Present',
       summary:
           'Building production mobile and web applications with Flutter, GetX, Firebase, REST APIs, and performance-focused UI architecture.',
     ),
     ExperienceModel(
-      role: 'Junior Android Developer',
+      role: 'Android Developer',
       company: 'Digital Decoder Ltd',
-      period: '2022 - 2024',
+      period: '2023 - 2024',
       summary:
           'Delivered Android app features, integrated APIs, fixed production issues, and collaborated with design and backend teams.',
+    ),
+
+    ExperienceModel(
+      role: 'Junior Android Developer',
+      company: 'Optiview Solutions',
+      period: '2022 - 2023',
+      summary:
+      'Developed and maintained Android mobile applications, implemented responsive UI designs, fixed bugs, added new features, and collaborated with backend and design teams to deliver reliable and user-friendly solutions.',
     ),
   ];
 
@@ -65,38 +74,42 @@ class PortfolioRepository {
     ProjectModel(
       title: 'E-Commerce App',
       category: 'Mobile',
+      image: '',
       description:
           'Feature-rich shopping app with cart, checkout, auth, order tracking, admin-ready architecture, and Firebase/API integrations.',
       technologies: ['Flutter', 'GetX', 'Firebase', 'REST API'],
       githubUrl: 'https://github.com/syedfaysal/ecommerce-app',
-      liveUrl: 'https://example.com/ecommerce',
+     //iveUrl: 'https://example.com/ecommerce',
     ),
     ProjectModel(
       title: 'Cloud Slider App',
       category: 'Web',
+      image: '',
       description:
           'Cloud-powered media slider management system with realtime updates, dashboard controls, and polished responsive UI.',
       technologies: ['Flutter Web', 'Firebase', 'Cloud Storage'],
       githubUrl: 'https://github.com/syedfaysal/cloud-slider',
-      liveUrl: 'https://example.com/cloud-slider',
+     //iveUrl: 'https://example.com/cloud-slider',
     ),
     ProjectModel(
       title: 'Quotation Management System',
       category: 'Backend',
+      image: '',
       description:
           'Business quotation workflow with customer records, quote generation, approval states, PDF export, and API-first backend.',
       technologies: ['Django', 'MySQL', 'REST API', 'Flutter'],
       githubUrl: 'https://github.com/syedfaysal/quotation-system',
-      liveUrl: 'https://example.com/quotation',
+     //iveUrl: 'https://example.com/quotation',
     ),
     ProjectModel(
       title: 'Islamic App',
       category: 'Mobile',
+      image: '',
       description:
           'Clean Islamic utility app with prayer resources, saved preferences, offline content, and accessible mobile-first design.',
       technologies: ['Flutter', 'SQLite', 'Hive'],
       githubUrl: 'https://github.com/syedfaysal/islamic-app',
-      liveUrl: 'https://example.com/islamic-app',
+     //iveUrl: 'https://example.com/islamic-app',
     ),
   ];
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:syed_faysal_portfolio/responsive.dart';
 
 import '../../../core/constants/app_constants.dart';
 import '../../../core/utils/responsive.dart';
@@ -47,14 +49,16 @@ class AboutSection extends StatelessWidget {
                   icon: Icons.timeline,
                 ),
               ];
-              return GridView.count(
+              return MasonryGridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: constraints.maxWidth < 760 ? 1 : 2,
-                childAspectRatio: constraints.maxWidth < 760 ? 2.35 : 2.8,
-                crossAxisSpacing: 18,
+                crossAxisCount: Responsive.isMobile(context) ? 1 : 2,
                 mainAxisSpacing: 18,
-                children: cards,
+                crossAxisSpacing: 18,
+                itemCount: cards.length,
+                itemBuilder: (context, index) {
+                  return cards[index];
+                },
               );
             },
           ),

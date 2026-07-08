@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:syed_faysal_portfolio/features/skills/views/widget/skillCategoryCard.dart';
 
@@ -53,6 +54,7 @@ class SkillsSection extends StatelessWidget {
           );
         }).toList(),
       )
+
         ],
       ),
     );

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/responsive.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/service_card.dart';
 import '../../../data/repositories/portfolio_repository.dart';
+import '../../../responsive.dart';
 
 class ServicesSection extends StatelessWidget {
   const ServicesSection({super.key});
@@ -23,7 +25,7 @@ class ServicesSection extends StatelessWidget {
                 'From Flutter apps to backend APIs, Firebase, maintenance, implementation, and dashboards.',
           ),
           const SizedBox(height: 28),
-          GridView.builder(
+          /*GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: services.length,
@@ -38,7 +40,21 @@ class ServicesSection extends StatelessWidget {
               mainAxisSpacing: 18,
             ),
             itemBuilder: (_, index) => ServiceCard(service: services[index]),
-          ),
+          ),*/
+          MasonryGridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: Responsive.isMobile(context)
+                ? 1 : 3,
+            mainAxisSpacing: 18,
+            crossAxisSpacing: 18,
+            itemCount: services.length,
+            itemBuilder: (_, index) {
+              return ServiceCard(
+                service: services[index],
+              );
+            },
+          )
         ],
       ),
     );
