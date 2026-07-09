@@ -75,6 +75,7 @@ class ProjectsSection extends StatelessWidget {
                 return ProjectCard(
                   project: project,
                   onGithub: () => home.openUrl(project.githubUrl),
+                  image: project.image,
                 );
               },
             ),

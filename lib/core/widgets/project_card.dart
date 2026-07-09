@@ -10,10 +10,12 @@ class ProjectCard extends StatelessWidget {
     super.key,
     required this.project,
     required this.onGithub,
+    required this.image,
    //  this.onLive,
   });
   final ProjectModel project;
   final VoidCallback onGithub;
+  final String image;
  // final VoidCallback? onLive;
 
   @override
@@ -25,20 +27,15 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 250,
+              height: 350,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
-                gradient: LinearGradient(
+                /*gradient: LinearGradient(
                   colors: [colors.primary, colors.secondary],
-                ),
+                ),*/
               ),
               child: Center(
-                child: Icon(
-                  Icons.rocket_launch,
-                  size: 56,
-                  color: colors.onPrimary,
-                ),
-              ),
+                  child: Image.asset(image,fit: BoxFit.contain,)),
             ),
             const SizedBox(height: 18),
             Text(
@@ -48,7 +45,8 @@ class ProjectCard extends StatelessWidget {
               ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 10),
-            Text(project.description, style: const TextStyle(height: 1.6)),
+            Text(project.description,
+                style: const TextStyle(height: 1.6)),
             const SizedBox(height: 14),
             Wrap(
               spacing: 8,

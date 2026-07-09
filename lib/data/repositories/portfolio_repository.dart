@@ -72,44 +72,109 @@ class PortfolioRepository {
 
   List<ProjectModel> projects = const [
     ProjectModel(
+      title: 'Portfolio WebApp',
+      category: 'WebApp',
+      image: 'assets/images/project_1.png',
+      description:
+      'A modern and responsive Portfolio App & Website designed to showcase personal information, skills, projects, experience, and achievements across mobile and web platforms with a professional user experience.',
+      technologies: ['Flutter', 'GetX','REST API','Shared Preferences'],
+      githubUrl: 'https://github.com/syedfaysal/ecommerce-app',
+      //iveUrl: 'https://example.com/ecommerce',
+    ),
+    ProjectModel(
+      title: 'InvoiceHub',
+      category: 'WebApp',
+      image: 'assets/images/project_1.png',
+      description:
+      'InvoiceHub is a modern Invoice & Challan Management App that enables businesses to create, manage, and track invoices and delivery challans efficiently through a clean, responsive, and user-friendly interface.',
+      technologies: ['Flutter', 'GetX','REST API','Shared Preferences'],
+      githubUrl: 'https://github.com/syedfaysal/ecommerce-app',
+      //iveUrl: 'https://example.com/ecommerce',
+    ),
+
+    ProjectModel(
       title: 'E-Commerce App',
       category: 'Mobile',
-      image: '',
+      image: 'assets/images/project_1.png',
       description:
-          'Feature-rich shopping app with cart, checkout, auth, order tracking, admin-ready architecture, and Firebase/API integrations.',
-      technologies: ['Flutter', 'GetX', 'Firebase', 'REST API'],
+          'FA modern and user-friendly e-commerce application that allows customers to browse products, manage carts and wishlists, place orders, make secure payments, and track deliveries seamlessly.',
+      technologies: ['Flutter', 'GetX','REST API','Shared Preferences'],
       githubUrl: 'https://github.com/syedfaysal/ecommerce-app',
      //iveUrl: 'https://example.com/ecommerce',
     ),
     ProjectModel(
-      title: 'Cloud Slider App',
-      category: 'Web',
-      image: '',
+      title: 'Medicine Ecommerce App',
+      category: 'Mobile',
+      image: 'assets/images/project_2.jpg',
       description:
-          'Cloud-powered media slider management system with realtime updates, dashboard controls, and polished responsive UI.',
-      technologies: ['Flutter Web', 'Firebase', 'Cloud Storage'],
+          'A secure and user-friendly online pharmacy platform that enables customers to order medicines, upload prescriptions, consult healthcare professionals, and track deliveries from anywhere.',
+      technologies: ['Flutter','Dart', 'Firebase', 'Cloud Storage','GetX'],
       githubUrl: 'https://github.com/syedfaysal/cloud-slider',
      //iveUrl: 'https://example.com/cloud-slider',
     ),
     ProjectModel(
-      title: 'Quotation Management System',
-      category: 'Backend',
-      image: '',
+      title: 'Agrogami App',
+      category: 'Mobile',
+      image: 'assets/images/project_3.png',
       description:
-          'Business quotation workflow with customer records, quote generation, approval states, PDF export, and API-first backend.',
-      technologies: ['Django', 'MySQL', 'REST API', 'Flutter'],
+          'Agragami ERP is a smart and modern cooperative management system designed to simplify member management, savings, loans, accounting, reports, and daily operations. It helps organizations manage their activities efficiently through a secure, user-friendly, and real-time digital platform.',
+      technologies: ['Flutter', 'Dart', 'REST API', 'Flutter'],
       githubUrl: 'https://github.com/syedfaysal/quotation-system',
      //iveUrl: 'https://example.com/quotation',
     ),
     ProjectModel(
-      title: 'Islamic App',
+      title: 'E-book UI App',
       category: 'Mobile',
-      image: '',
+      image: 'assets/images/project_4.png',
       description:
-          'Clean Islamic utility app with prayer resources, saved preferences, offline content, and accessible mobile-first design.',
-      technologies: ['Flutter', 'SQLite', 'Hive'],
+          'Developed an E-Book Shop App featuring book catalog browsing, category filtering, search functionality, shopping cart, secure checkout, and personalized digital library management.',
+      technologies: ['Flutter', 'GetX', 'Hive'],
       githubUrl: 'https://github.com/syedfaysal/islamic-app',
      //iveUrl: 'https://example.com/islamic-app',
+    ),
+
+    ProjectModel(
+      title: 'Islamic App',
+      category: 'Mobile',
+      image: 'assets/images/project_5.png',
+      description:
+      'An Islamic Book App that allows users to read a fixed PDF book, save their reading progress, bookmark pages, and continue reading from where they left off through a simple and user-friendly interface.',
+      technologies: ['Flutter','Dart', 'PDF Viewer', 'Shared Preferences'],
+      githubUrl: 'https://github.com/syedfaysal/islamic-app',
+      //iveUrl: 'https://example.com/islamic-app',
+    ),
+
+    ProjectModel(
+      title: 'Fitness Shop UI App ',
+      category: 'Mobile',
+      image: 'assets/images/project_6.png',
+      description:
+      'A modern Fitness Shop App UI design that showcases fitness products with an intuitive shopping experience, featuring product browsing, category filtering, cart management, and a clean, user-friendly interface.',
+      technologies: ['Flutter', 'Dart','Hive','GetX'],
+      githubUrl: 'https://github.com/syedfaysal/islamic-app',
+      //iveUrl: 'https://example.com/islamic-app',
+    ),
+
+    ProjectModel(
+      title: 'News App',
+      category: 'Mobile',
+      image: 'assets/images/project_7.png',
+      description:
+      'A modern News App that delivers the latest news through a clean and user-friendly interface, allowing users to browse articles, explore categories, and stay updated with current events.',
+      technologies: ['Flutter','Dart','Rest API','Hive'],
+      githubUrl: 'https://github.com/syedfaysal/islamic-app',
+      //iveUrl: 'https://example.com/islamic-app',
+    ),
+
+    ProjectModel(
+      title: 'Weather App',
+      category: 'Mobile',
+      image: 'assets/images/project_8.png',
+      description:
+      'Clean Islamic utility app with prayer resources, saved preferences, offline content, and accessible mobile-first design.',
+      technologies: ['Flutter','Dart','Rest API','Shared Preferences'],
+      githubUrl: 'https://github.com/syedfaysal/islamic-app',
+      //iveUrl: 'https://example.com/islamic-app',
     ),
   ];
 
