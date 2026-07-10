@@ -19,20 +19,20 @@ class HeroSection extends StatelessWidget {
     final intro = _IntroContent(home: home, onContact: onContact);
     final profile = _ProfileCard(home: home);
     return ResponsiveConstrainedBox(
-      child: Obx(
-          ()=> Responsive.isLargeScreen(context)
+      child:  Responsive.isLargeScreen(context)
             ? Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(flex: 6, child: intro),
             const SizedBox(width: 48),
-            home.isLoading.value ? const SizedBox():
+        Obx(
+              ()=> home.isLoading.value ? const SizedBox():
             Expanded(flex: 4, child: profile),
+        )
           ],
         )
             : Column(children: [intro, const SizedBox(height: 36), profile]),
-      ),
-    );
+      );
   }
 }
 
